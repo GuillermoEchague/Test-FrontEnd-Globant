@@ -1,0 +1,30 @@
+{
+  "name": "frontend_cypress",
+  "version": "1.0.0",
+  "description": "Actividad beca globant - Pruebas E2E para Sistema ADL",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test:e2e": "cypress run --spec 'cypress/e2e/**/*.feature'",
+    "test:single": "cypress run --spec 'cypress/e2e/user-authentication-and-products.feature'"
+  },
+  "author": "Guillermo Echague",
+  "license": "ISC",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^22.2.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
+    "cypress": "^14.5.2",
+    "cypress-mochawesome-reporter": "^4.0.0",
+    "mochawesome": "^7.1.3",
+    "multiple-cucumber-html-reporter": "^3.9.3",
+    "prettier": "^3.6.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/support/step_definitions/**/*.{js,ts}",
+    "messages": {
+      "enabled": true
+    }
+  }
+}

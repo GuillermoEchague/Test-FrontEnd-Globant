@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+      "target": "es2020",
+      "lib": ["es2020", "dom"],
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "allowJs": true,
+      "checkJs": false,
+      "outDir": "./dist",
+      "rootDir": "./",
+      "strict": false,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "resolveJsonModule": true
+    },
+    "include": [
+      "cypress/**/*"
+    ],
+    "exclude": [
+      "node_modules",
+      "cypress/reports",
+      "cypress/videos",
+      "cypress/screenshots"
+    ]
+  }
+  
