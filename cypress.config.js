@@ -22,6 +22,7 @@ module.exports = defineConfig({
     env: {
       email: "testeradl@test.com",
       password: "Tester@2025",
+      badpassword: "Tester@2025error",
     },
   },
   video: false,

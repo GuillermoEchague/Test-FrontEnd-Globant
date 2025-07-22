@@ -36,10 +36,16 @@ Then("el usuario debería ser redirigido al dashboard principal", () => {
 });
 
 Then("el usuario debería ver un mensaje de error", () => {
-  loginPage.shouldShowError();
+  loginPage.shouldShowAlertWithMessage(
+    "Las credenciales proporcionadas son incorrectas."
+  );
 });
 
 Then("el usuario no debería ser redirigido al dashboard", () => {
   cy.url().should("not.include", "/dashboard");
   cy.url().should("include", "/login"); // o la URL de login que corresponda
+});
+
+When("ingreso mis credenciales incorrectas y hago login", () => {
+  loginPage.login(Cypress.env("email"), Cypress.env("badpassword"));
 });

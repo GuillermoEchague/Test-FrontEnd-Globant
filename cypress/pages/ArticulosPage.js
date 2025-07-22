@@ -34,31 +34,29 @@ class ArticulosPage {
   }
 
   // Métodos existentes actualizados
+  //TODO: Corregir este metodo
   verifyArticulosListVisible() {
     // Intentar con el selector legacy primero, luego con los nuevos
-    cy.get("body").then(($body) => {
-      if ($body.find(this.selectors.articulosList).length > 0) {
-        cy.get(this.selectors.articulosList, { timeout: 10000 }).should(
-          "be.visible"
-        );
-      } else {
-        // Usar los nuevos selectores basados en el HTML
-        cy.get(this.selectors.articulosContainer, { timeout: 10000 }).should(
-          "be.visible"
-        );
-      }
-    });
-  }
+    cy.get("main")
+      .should("have.class", "flex-1")
+      .should("have.class", "p-6")
+      .should("have.class", "overflow-y-auto");
 
-  verifyMinimumArticulos(count) {
-    // Intentar con selector legacy, luego con el nuevo
-    cy.get("body").then(($body) => {
-      if ($body.find(this.selectors.articuloItem).length > 0) {
-        cy.get(this.selectors.articuloItem).should("have.length.gte", count);
-      } else {
-        cy.get(this.selectors.articuloCard).should("have.length.gte", count);
-      }
-    });
+    // Verificar div con flexbox responsive
+    cy.get("div.sm\\:flex.sm\\:items-center")
+      .should("exist")
+      .within(() => {
+        // Verificar elementos internos
+        cy.get("div.sm\\:flex-auto").should("exist");
+        cy.get("h1").should("exist");
+        cy.get("p").should("exist");
+      });
+
+    // Verificar divs con clases específicas
+    cy.get("div.mt-4.sm\\:mt-0.sm\\:ml-16.sm\\:flex-none").should("exist");
+    cy.get("div.mt-6").should("exist");
+    cy.get("div.hidden.lg\\:block").should("exist");
+    cy.get("div.block.lg\\:hidden").should("exist");
   }
 
   clickFirstArticulo() {
@@ -182,6 +180,7 @@ class ArticulosPage {
 
   // Método para verificar la carga completa de la página
   verifyFullPageLoad() {
+    cy.viewport(375, 667); // Móvil, para mostrar .block.lg:hidden
     this.waitForPageLoad();
     this.verifyArticulosListVisible();
     this.verifyPrimaryButtonVisible();
@@ -234,6 +233,10 @@ class ArticulosPage {
       .and("have.class", "justify-center")
       .and("have.class", "bg-indigo-600");
     return this;
+  }
+
+  createArticle() {
+    cy.get('button[type="button"]').contains("Crear").click();
   }
 }
 

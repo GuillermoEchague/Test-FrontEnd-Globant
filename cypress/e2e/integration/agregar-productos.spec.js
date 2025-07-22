@@ -1,11 +1,13 @@
 const LoginPage = require("../../pages/LoginPage");
 const DashboardPage = require("../../pages/DashboardPage");
 const ArticulosPage = require("../../pages/ArticulosPage");
+const NewArticuloPage = require("../../pages/NuevoArticuloPage");
 
-describe("Consulta de Artículos (Productos) - Flujo Completo", () => {
+describe("Agregar Artículos (Productos) - Flujo Completo", () => {
   const loginPage = new LoginPage();
   const dashboardPage = new DashboardPage();
   const articulosPage = new ArticulosPage();
+  const newArticulosPage = new NewArticuloPage();
 
   beforeEach(() => {
     cy.viewport(1280, 720);
@@ -25,6 +27,8 @@ describe("Consulta de Artículos (Productos) - Flujo Completo", () => {
     dashboardPage.goToArticulos();
 
     // 4. Verificar que llegamos a la página de artículos
-    articulosPage.verifyArticulosPageUrl();
+    articulosPage.createArticle();
+
+    newArticulosPage.AddArticle("COCA-600", "text test", 1, 100, 150);
   });
 });

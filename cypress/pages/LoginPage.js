@@ -26,11 +26,11 @@ class LoginPage {
     cy.url().should("include", "/dashboard");
   }
 
-  shouldShowAlertWithMessage(expectedMessage) {
-    // Validación estricta del role="alert" y su contenido
-    cy.get('[role="alert"]')
+  shouldShowAlertWithMessage(expectedMessage, timeout = 10000) {
+    cy.get('[role="alert"]', { timeout }) // espera hasta `timeout` ms
       .should("exist")
       .and("contain.text", expectedMessage);
+    // cy.get('[role="alert"]', { timeout: 10000 }).should("not.be.visible");
 
     return this;
   }
