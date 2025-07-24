@@ -25,6 +25,6 @@ module.exports = defineConfig({
       badpassword: "Tester@2025error",
     },
   },
-  video: false,
+  video: true,
   screenshotOnRunFailure: true,
 });

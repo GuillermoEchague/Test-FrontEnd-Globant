@@ -2,12 +2,14 @@ const LoginPage = require("../../pages/LoginPage");
 const DashboardPage = require("../../pages/DashboardPage");
 const ArticulosPage = require("../../pages/ArticulosPage");
 const NewArticuloPage = require("../../pages/NuevoArticuloPage");
+const EditArticuloPage = require("../../pages/EditArticuloPage");
 
-describe("Agregar Artículos (Productos) - Flujo Completo", () => {
+describe("Editar Artículos (Productos)", () => {
   const loginPage = new LoginPage();
   const dashboardPage = new DashboardPage();
   const articulosPage = new ArticulosPage();
   const newArticulosPage = new NewArticuloPage();
+  const editArticuloPage = new EditArticuloPage();
 
   beforeEach(() => {
     cy.viewport(1280, 720);
@@ -27,12 +29,15 @@ describe("Agregar Artículos (Productos) - Flujo Completo", () => {
     dashboardPage.goToArticulos();
 
     // 4. Verificar que llegamos a la página de artículos
-    articulosPage.createArticle();
 
-    // Unidad, Caja, Kg
-    newArticulosPage.AddArticle(
+    // O verificar primero y luego seleccionar
+    editArticuloPage.verifyiPhoneTdExists().selectiPhoneTd();
+    // Método genérico para otros productos
+    //editArticuloPage.selectTdByText("Iphone 16 Pro Max");
+    newArticulosPage.submitEditar();
+    newArticulosPage.EditArticle(
       "IPHONE-16",
-      "iPhone 16 Nuevo",
+      "Iphone 16 para Iphone 16 Pro Max",
       10,
       100000,
       150000,

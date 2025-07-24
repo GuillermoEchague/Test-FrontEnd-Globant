@@ -30,7 +30,6 @@ class LoginPage {
     cy.get('[role="alert"]', { timeout }) // espera hasta `timeout` ms
       .should("exist")
       .and("contain.text", expectedMessage);
-    // cy.get('[role="alert"]', { timeout: 10000 }).should("not.be.visible");
 
     return this;
   }
