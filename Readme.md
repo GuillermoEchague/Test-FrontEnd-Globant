@@ -11,16 +11,24 @@ El proyecto implementa pruebas automatizadas utilizando **Cypress** con enfoque 
 Implementar pruebas E2E para las siguientes historias de usuario:
 
 - ✅ **Como usuario registrado**, quiero poder acceder al sistema y realizar la consulta de productos
+
 ![Caso 1 Diagram](./images/caso_1.png)
+
 - ✅ **Como usuario registrado**, quiero poder registrar un nuevo producto (iPhone 16)
-![Caso 2 Diagram](./images/Caso_2.png)
+
+![Caso 2 Diagram](./images/caso_2.png)
 
 - ✅ **Como usuario registrado**, quiero poder actualizar un producto (iPhone 16 → iPhone 16 Pro Max)
-![Caso 3 Diagram](./images/Caso_3.png)
+
+![Caso 3 Diagram](./images/caso_3.png)
+
 - ✅ **Como usuario registrado**, quiero poder eliminar un producto (iPhone 16 Pro Max)
-![Caso 4 Diagram](./images/Caso_4.png)
+
+![Caso 4 Diagram](./images/caso_4.png)
+
 - ✅ **Como usuario no registrado**, quiero validar que no puedo acceder al sistema
-![Caso 5 Diagram](./images/Caso_5.png)
+
+![Caso 5 Diagram](./images/caso_5.png)
 
 ## 🏗️ Arquitectura del Proyecto
 
